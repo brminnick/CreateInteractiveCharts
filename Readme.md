@@ -4,7 +4,7 @@ Displaing data
 
 | Before | After |
 | ------ | ----- |
-| <img src="https://user-images.githubusercontent.com/13558917/73576237-db7fed80-442e-11ea-8a37-ea850dd45488.png" height="500"/> | <img src="https://user-images.githubusercontent.com/13558917/73576092-83e18200-442e-11ea-9b44-05e3ed72fae9.gif" height="500"/> |
+| <img src="https://user-images.githubusercontent.com/13558917/73576899-6f9e8480-4430-11ea-9c61-810d14e51b50.png" height="500"/> | <img src="https://user-images.githubusercontent.com/13558917/73576092-83e18200-442e-11ea-9b44-05e3ed72fae9.gif" height="500"/> |
 
 
 ## 0. Getting Started
