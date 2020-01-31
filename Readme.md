@@ -168,7 +168,88 @@ public class App : Application
 }
 ```
 
+## 3. Make the Chart Interactive
 
-## 3. Add Interactive Trackball
+First, let's add the ability to see the exact value of the data by adding `ChartTrackballBehavior`
 
-## 4. Add Pan + Zoom
+```csharp
+public AreaSeriesChart()
+{
+    const int numberOfDays = 20;
+    const int maxValue = 100;
+
+    var areaSeries = new AreaSeries
+    {
+        Opacity = 0.9,
+        Label = nameof(ChartDataModel),
+        ItemsSource = GenerateData(numberOfDays, maxValue),
+        XBindingPath = nameof(ChartDataModel.Date),
+        YBindingPath = nameof(ChartDataModel.Value)
+    };
+
+    Series = new ChartSeriesCollection { areaSeries };
+
+    PrimaryAxis = new DateTimeAxis
+    {
+        IntervalType = DateTimeIntervalType.Days,
+        Interval = 1,
+        RangePadding = DateTimeRangePadding.Round,
+        Minimum = DateTime.Now.Subtract(TimeSpan.FromDays(numberOfDays - 1)),
+        Maximum = DateTime.Now
+    };
+
+    SecondaryAxis = new NumericalAxis
+    {
+        Minimum = 0,
+        Maximum = maxValue
+    };
+
+    ChartBehaviors = new ChartBehaviorCollection
+    {
+        new ChartZoomPanBehavior(),
+        new ChartTrackballBehavior()
+    };
+}
+```
+
+Next, let's add the ability to pan and zoom by adding `ChartZoomPanBehavior`:
+
+```csharp
+public AreaSeriesChart()
+{
+    const int numberOfDays = 20;
+    const int maxValue = 100;
+
+    var areaSeries = new AreaSeries
+    {
+        Opacity = 0.9,
+        Label = nameof(ChartDataModel),
+        ItemsSource = GenerateData(numberOfDays, maxValue),
+        XBindingPath = nameof(ChartDataModel.Date),
+        YBindingPath = nameof(ChartDataModel.Value)
+    };
+
+    Series = new ChartSeriesCollection { areaSeries };
+
+    PrimaryAxis = new DateTimeAxis
+    {
+        IntervalType = DateTimeIntervalType.Days,
+        Interval = 1,
+        RangePadding = DateTimeRangePadding.Round,
+        Minimum = DateTime.Now.Subtract(TimeSpan.FromDays(numberOfDays - 1)),
+        Maximum = DateTime.Now
+    };
+
+    SecondaryAxis = new NumericalAxis
+    {
+        Minimum = 0,
+        Maximum = maxValue
+    };
+
+    ChartBehaviors = new ChartBehaviorCollection
+    {
+        new ChartZoomPanBehavior(),
+        new ChartTrackballBehavior()
+    };
+}
+```

@@ -36,6 +36,12 @@ namespace CreateInteractiveCharts
                 Minimum = 0,
                 Maximum = maxValue
             };
+
+            ChartBehaviors = new ChartBehaviorCollection
+            {
+                new ChartZoomPanBehavior(),
+                new ChartTrackballBehavior()
+            };
         }
 
         static IEnumerable<ChartDataModel> GenerateData(int count = 10, int maxValue = 100)
