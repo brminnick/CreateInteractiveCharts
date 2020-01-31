@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Syncfusion.SfChart.XForms;
 
 namespace CreateInteractiveCharts
@@ -11,11 +12,13 @@ namespace CreateInteractiveCharts
             const int numberOfDays = 20;
             const int maxValue = 100;
 
+            var dataSource = GenerateData(numberOfDays, maxValue).ToList();
+
             var areaSeries = new AreaSeries
             {
                 Opacity = 0.9,
                 Label = nameof(ChartDataModel),
-                ItemsSource = GenerateData(numberOfDays, maxValue),
+                ItemsSource = dataSource,
                 XBindingPath = nameof(ChartDataModel.Date),
                 YBindingPath = nameof(ChartDataModel.Value)
             };
@@ -27,8 +30,8 @@ namespace CreateInteractiveCharts
                 IntervalType = DateTimeIntervalType.Days,
                 Interval = 1,
                 RangePadding = DateTimeRangePadding.Round,
-                Minimum = DateTime.Now.Subtract(TimeSpan.FromDays(numberOfDays - 1)),
-                Maximum = DateTime.Now
+                Minimum = dataSource.Min(x => x.Date),
+                Maximum = dataSource.Max(x => x.Date)
             };
 
             SecondaryAxis = new NumericalAxis
@@ -44,7 +47,7 @@ namespace CreateInteractiveCharts
             };
         }
 
-        static IEnumerable<ChartDataModel> GenerateData(int count = 10, int maxValue = 100)
+        static IEnumerable<ChartDataModel> GenerateData(int count, int maxValue)
         {
             var random = new Random((int)DateTime.Now.Ticks);
 

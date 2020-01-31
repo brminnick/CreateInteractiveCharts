@@ -1,8 +1,10 @@
 # Xamarin.Forms: Easily Creating Interactive Charts
 
-- Create Chart
-- Add Interactive Trackball
-- Add Pan + Zoom 
+Displaing data 
+
+| Before | After |
+| ------ | ----- |
+| <img src="https://user-images.githubusercontent.com/13558917/73576237-db7fed80-442e-11ea-8a37-ea850dd45488.png" height="500"/> | <img src="https://user-images.githubusercontent.com/13558917/73576092-83e18200-442e-11ea-9b44-05e3ed72fae9.gif" height="500"/> |
 
 
 ## 0. Getting Started
@@ -168,6 +170,10 @@ public class App : Application
 }
 ```
 
+Great! Now we have a chart in our app that displays our data:
+
+<img src="https://user-images.githubusercontent.com/13558917/73576237-db7fed80-442e-11ea-8a37-ea850dd45488.png" height="250"/>
+
 ## 3. Make the Chart Interactive
 
 First, let's add the ability to see the exact value of the data by adding `ChartTrackballBehavior`
@@ -253,3 +259,7 @@ public AreaSeriesChart()
     };
 }
 ```
+
+And now we have an interactive chart!
+
+![Interactive Chart](https://user-images.githubusercontent.com/13558917/73576092-83e18200-442e-11ea-9b44-05e3ed72fae9.gif)
