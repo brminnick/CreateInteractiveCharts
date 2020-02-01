@@ -62,13 +62,13 @@ paint.SetStyle(Paint.Style.Stroke);
 canvas.DrawPath(path, paint);
 ```
 
-All this code, and we haven't yet touched on adding touch gestures like pan and zoom, yet. 
+All this code, and we haven't yet touched on adding touch gestures like pan + zoom, yet. 
 
 Let's look at how to do it with Syncfusion instead.
 
 # Drawing Charts With Syncfusion
 
-Syncfusion makes our lives easier by using the [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview) library. It doesn't require any complex calculations and, best of all, it is cross-platform and can be used in our [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin) project! 
+Syncfusion makes our lives easier by using the [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview) library. It doesn't require any complex calculations, and, best of all, it is cross-platform and can be used in our [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin) project! 
 
 Let's look at how to install and implement [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview).
 
