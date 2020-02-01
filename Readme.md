@@ -17,10 +17,10 @@ https://github.com/brminnick/CreateInteractiveCharts/tree/master/Source
 
  To draw charts without Syncfusion, we use libraries like [`CoreGraphics.CGContext`](https://docs.microsoft.com/dotnet/api/coregraphics.cgcontext?view=xamarin-ios-sdk-12&WT.mc_id=syncfusion-blog-bramin) & [`CoreGraphics.CGPoint`](https://docs.microsoft.com/dotnet/api/coregraphics.cgpoint?view=xamarin-ios-sdk-12&WT.mc_id=syncfusion-blog-bramin) on iOS and [`Android.Graphics.Path`](https://docs.microsoft.com/en-us/dotnet/api/android.graphics.path?view=xamarin-android-sdk-9&WT.mc_id=syncfusion-blog-bramin) & [`Android.Graphics.Paint`](https://docs.microsoft.com/en-us/dotnet/api/android.graphics.paint?view=xamarin-android-sdk-9&WT.mc_id=syncfusion-blog-bramin) on Android. These libraries are platform-specific, meaning we cannot use them in our [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin) cross-platform UI.
 
-For example, check out this code from [XWeather](https://github.com/colbylwilliams/XWeather), a weather app build using [Xamarin.iOS](https://docs.microsoft.com/xamarin/ios?WT.mc_id=syncfusion-blog-bramin) and [Xamarin.Android](https://docs.microsoft.com/xamarin/android?WT.mc_id=syncfusion-blog-bramin):
+For example, check out this code from [XWeather](https://github.com/colbylwilliams/XWeather), a weather app built using [Xamarin.iOS](https://docs.microsoft.com/xamarin/ios?WT.mc_id=syncfusion-blog-bramin) and [Xamarin.Android](https://docs.microsoft.com/xamarin/android?WT.mc_id=syncfusion-blog-bramin):
 
 ### XWeather, iOS Example
-_Source Code: https://github.com/colbylwilliams/XWeather/blob/master/XWeather/iOS/ViewControllers/DailyGraphView.cs_
+_[Link to Source Code](https://github.com/colbylwilliams/XWeather/blob/master/XWeather/iOS/ViewControllers/DailyGraphView.cs)_
 
 ```csharp
 var graphRect = new CGRect (rect.X + padding, rect.Y + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
@@ -46,7 +46,7 @@ cgContex.DrawPath(CGPathDrawingMode.Stroke);
 ```
 
 ### XWeather, Android Example
-_Source Code: https://github.com/colbylwilliams/XWeather/blob/master/XWeather/Droid/View/DailyGraphView.cs_
+_[Link to Source Code](https://github.com/colbylwilliams/XWeather/blob/master/XWeather/Droid/View/DailyGraphView.cs)_
 
 ```csharp
 var graphRect = new RectF (padding, padding, canvas.Width - padding, canvas.Height - padding);
