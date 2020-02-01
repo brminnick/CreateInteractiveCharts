@@ -1,8 +1,8 @@
 # Creating Interactive Charts in Xamarin.Forms
 
-Displaying data in mobile apps using charts is common, but drawing the chart can be very difficult. It requires a lot of calculations, figuring out distance between each point on the chart.
+Displaying data in mobile apps using charts is common, but drawing the chart can be very difficult. It requires a lot of calculations, figuring out distances between each point, then drawing them on the chart.
 
-And to make matters more difficult, we need to drop down to the platform-specific iOS and Android APIs in order to draw the charts on the screen and implement touch gestures.
+And to make matters more difficult, we need to use platform-specific iOS and Android APIs in order to draw the charts on the screen and implement touch gestures.
 
 Let's explore how we can leverage [Syncfusion Charts](https://help.syncfusion.com/xamarin/charts/overview) to make our lives easier, requiring less math and allowing us to use cross-platform APIs in [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin)!
 
