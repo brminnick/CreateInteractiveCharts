@@ -1,17 +1,84 @@
-# Xamarin.Forms: Easily Creating Interactive Charts
+# Creating Interactive Charts in Xamarin.Forms
 
-Displaing data 
+Displaying data in mobile apps using charts is common, but drawing the chart can be very difficult. It requires a lot of calculations, figuring out distance between each point on the chart.
 
-| Before | After |
+And to make matters more difficult, we need to drop down to the platform-specific iOS and Android APIs in order to draw the charts on the screen and implement touch gestures.
+
+Let's explore how we can leverage [Syncfusion Charts](https://help.syncfusion.com/xamarin/charts/overview) to make our lives easier, requiring less math and allowing us to use cross-platform APIs in Xamarin.Forms!
+
+The completed code can be found here:
+https://github.com/brminnick/CreateInteractiveCharts
+
+| Android | iOS |
 | ------ | ----- |
-| <img src="https://user-images.githubusercontent.com/13558917/73576899-6f9e8480-4430-11ea-9c61-810d14e51b50.png" height="500"/> | <img src="https://user-images.githubusercontent.com/13558917/73576092-83e18200-442e-11ea-9b44-05e3ed72fae9.gif" height="500"/> |
+| <img src="https://user-images.githubusercontent.com/13558917/73583677-6de0bb00-4448-11ea-93f8-0290e44dc144.gif" height="500"/> | <img src="https://user-images.githubusercontent.com/13558917/73576092-83e18200-442e-11ea-9b44-05e3ed72fae9.gif" height="500"/> |
 
+## Drawing Charts, Before Syncfusion
+
+ To draw charts without Syncfusion, we use libraries like `CoreGraphics.CGContext` & `CoreGraphics.CGPoint` on iOS and `Android.Graphics.Path` & `Android.Graphics.Paint` on Android. These libraries are platform-specific, meaning we cannot use them in our Xamarin.Forms cross-platform UI.
+
+For example, check out this code from [XWeather](https://github.com/colbylwilliams/XWeather), a weather app build using Xamarin.iOS and Xamarin.Android:
+
+### XWeather, iOS Example
+_Source Code: https://github.com/colbylwilliams/XWeather/blob/master/XWeather/iOS/ViewControllers/DailyGraphView.cs_
+
+```csharp
+var graphRect = new CGRect (rect.X + padding, rect.Y + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
+// ...
+var scaleHigh = NMath.Round (highest, MidpointRounding.AwayFromZero);
+var scaleLow = lowest < 0 ? NMath.Round (lowest, MidpointRounding.AwayFromZero) : NMath.Round (lowest);
+// ...
+var rangePadding = Settings.UomTemperature.IsImperial () ? scalePadding : (scalePadding / 2);
+
+using var cgContex = UIGraphics.GetCurrentContext();
+using var point = new CGPath ();
+
+point.MoveToPoint(graphRect.GetMinX (), graphRect.GetMaxY ());
+
+point.AddLines(new [] {
+	new CGPoint(graphRect.GetMinX (), graphRect.GetMinY ()),
+	new CGPoint(graphRect.GetMinX (), graphRect.GetMaxY ()),
+	new CGPoint(graphRect.GetMaxX (), graphRect.GetMaxY ())
+});
+
+cgContex.AddPath(p);
+cgContex.DrawPath(CGPathDrawingMode.Stroke);
+```
+
+### XWeather, Android Example
+_Source Code: https://github.com/colbylwilliams/XWeather/blob/master/XWeather/Droid/View/DailyGraphView.cs_
+
+```csharp
+var graphRect = new RectF (padding, padding, canvas.Width - padding, canvas.Height - padding);
+
+using var path = new Path();
+path.MoveTo(graphRect.Left, graphRect.Top);
+
+path.LineTo(graphRect.Left, graphRect.Bottom);
+path.LineTo(graphRect.Right, graphRect.Bottom);
+
+paint.SetStyle(Paint.Style.Stroke);
+
+canvas.DrawPath(path, paint);
+```
+
+All this code, and we haven't yet touched on adding touch gestures like pan and zoom, yet. 
+
+Let's look at how to do it with Syncfusion instead.
+
+# Drawing Charts With Syncfusion
+
+Syncfusion makes our lives easier by using the [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview) library. It doesn't require any complex calculations and, best of all, it is cross-platform and can be used in our Xamarin.Forms project! 
+
+Let's look at how to install and implement [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview).
 
 ## 0. Getting Started
 
 ### Install Syncfusion NuGet Packages
 
 - Install [Syncfusion.Xamarin.SfChart NuGet Package](https://www.nuget.org/packages/Syncfusion.Xamarin.SfChart/) into each project, e.g. .NET Standard Project, Xamarin.iOS Project and Xamarin.Android project
+
+![NuGet Package](https://help.syncfusion.com/xamarin/charts/Getting-Started_images/img3.png)
 
 ### Initialize Syncfusion Charts, iOS
 
@@ -35,7 +102,7 @@ public class AppDelegate : Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 
 ### Create Data Model for Chart
 
-Let's create the model we'll use for our chart data:
+Let's create a new class called `ChartDataModel` that we'll use as the model to hold the data for our chart:
 
 ```csharp
 class ChartDataModel
@@ -83,7 +150,7 @@ class AreaSeriesChart : SfChart
 }
 ```
 
-Next, let's create an `AreaSeries` that will display our data:
+Next, in the constructor of `AreaSeriesChart`, let's create an `AreaSeries` that will display our data:
 
 ```csharp
 public AreaSeriesChart()
@@ -104,7 +171,7 @@ public AreaSeriesChart()
 }
 ```
 
-Lastly, let's define our `PrimaryAxis` and `SecondaryAxis`:
+Lastly, in the constructor of `AreaSeriesChart`, let's define our `PrimaryAxis` and `SecondaryAxis`:
 
 ```csharp
 public AreaSeriesChart()
@@ -172,7 +239,7 @@ public class App : Application
 
 Great! Now we have a chart in our app that displays our data:
 
-<img src="https://user-images.githubusercontent.com/13558917/73576237-db7fed80-442e-11ea-8a37-ea850dd45488.png" height="250"/>
+<img src="https://user-images.githubusercontent.com/13558917/73576237-db7fed80-442e-11ea-8a37-ea850dd45488.png" height="500"/>
 
 ## 3. Make the Chart Interactive
 
