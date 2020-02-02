@@ -7,7 +7,7 @@ And to make matters more difficult, we need to use platform-specific iOS and And
 Let's explore how we can leverage [Syncfusion Charts](https://help.syncfusion.com/xamarin/charts/overview) to make our lives easier, requiring less math and allowing us to use cross-platform APIs in [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin)!
 
 Here's where you can find completed code samples:
-- [CreateInteractiveCharts](https://github.com/brminnick/CreateInteractiveCharts/tree/master/Source), the completed code from this walkthrough
+- [CreateInteractiveCharts](https://github.com/brminnick/CreateInteractiveCharts/tree/master/Source), The completed code from this walkthrough
 - [GitTrends](https://github.com/brminnick/GitTrends), An iOS and Android app to monitor the Views and Clones happening on your GitHub repositories
 
 | Android | iOS |
