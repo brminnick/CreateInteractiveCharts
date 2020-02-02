@@ -280,7 +280,6 @@ public AreaSeriesChart()
 
     ChartBehaviors = new ChartBehaviorCollection
     {
-        new ChartZoomPanBehavior(),
         new ChartTrackballBehavior()
     };
 }
