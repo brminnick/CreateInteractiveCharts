@@ -1,9 +1,17 @@
 ﻿using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace CreateInteractiveCharts
 {
-    public class App : Application
+    public class App : Xamarin.Forms.Application
     {
-        public App() => MainPage = new NavigationPage(new SyncfusionChartPage());
+        public App()
+        {
+            var navigationPage = new Xamarin.Forms.NavigationPage(new SyncfusionChartPage());
+            navigationPage.On<iOS>().SetPrefersLargeTitles(true);
+
+            MainPage = navigationPage;
+        }
     }
 }
