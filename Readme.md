@@ -4,7 +4,7 @@ Displaying data in mobile apps using charts is common, but drawing the chart can
 
 And to make matters more difficult, we need to use platform-specific iOS and Android APIs in order to draw the charts on the screen and implement touch gestures.
 
-Let's explore how we can leverage [Syncfusion Charts](https://help.syncfusion.com/xamarin/charts/overview) to make our lives easier, requiring less math and allowing us to use cross-platform APIs in [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin)!
+Let's explore how we can leverage [Syncfusion Charts](https://help.syncfusion.com/xamarin/charts/overview) to make our lives easier, requiring less math and allowing us to use cross-platform APIs in [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=createinteractivecharts-github-bramin)!
 
 Here's where you can find completed code samples:
 - [CreateInteractiveCharts](https://github.com/brminnick/CreateInteractiveCharts/tree/master/Source), The completed code from this walkthrough
@@ -16,9 +16,9 @@ Here's where you can find completed code samples:
 
 ## Drawing Charts, Before Syncfusion
 
- To draw charts without Syncfusion, we use libraries like [`CoreGraphics.CGContext`](https://docs.microsoft.com/dotnet/api/coregraphics.cgcontext?view=xamarin-ios-sdk-12&WT.mc_id=syncfusion-blog-bramin) & [`CoreGraphics.CGPoint`](https://docs.microsoft.com/dotnet/api/coregraphics.cgpoint?view=xamarin-ios-sdk-12&WT.mc_id=syncfusion-blog-bramin) on iOS and [`Android.Graphics.Path`](https://docs.microsoft.com/en-us/dotnet/api/android.graphics.path?view=xamarin-android-sdk-9&WT.mc_id=syncfusion-blog-bramin) & [`Android.Graphics.Paint`](https://docs.microsoft.com/en-us/dotnet/api/android.graphics.paint?view=xamarin-android-sdk-9&WT.mc_id=syncfusion-blog-bramin) on Android. These libraries are platform-specific, meaning we cannot use them in our [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin) cross-platform UI.
+ To draw charts without Syncfusion, we use libraries like [`CoreGraphics.CGContext`](https://docs.microsoft.com/dotnet/api/coregraphics.cgcontext?view=xamarin-ios-sdk-12&WT.mc_id=createinteractivecharts-github-bramin) & [`CoreGraphics.CGPoint`](https://docs.microsoft.com/dotnet/api/coregraphics.cgpoint?view=xamarin-ios-sdk-12&WT.mc_id=createinteractivecharts-github-bramin) on iOS and [`Android.Graphics.Path`](https://docs.microsoft.com/dotnet/api/android.graphics.path?view=xamarin-android-sdk-9&WT.mc_id=createinteractivecharts-github-bramin) & [`Android.Graphics.Paint`](https://docs.microsoft.com/dotnet/api/android.graphics.paint?view=xamarin-android-sdk-9&WT.mc_id=createinteractivecharts-github-bramin) on Android. These libraries are platform-specific, meaning we cannot use them in our [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=createinteractivecharts-github-bramin) cross-platform UI.
 
-For example, check out this code from [XWeather](https://github.com/colbylwilliams/XWeather), a weather app built using [Xamarin.iOS](https://docs.microsoft.com/xamarin/ios?WT.mc_id=syncfusion-blog-bramin) and [Xamarin.Android](https://docs.microsoft.com/xamarin/android?WT.mc_id=syncfusion-blog-bramin):
+For example, check out this code from [XWeather](https://github.com/colbylwilliams/XWeather), a weather app built using [Xamarin.iOS](https://docs.microsoft.com/xamarin/ios?WT.mc_id=createinteractivecharts-github-bramin) and [Xamarin.Android](https://docs.microsoft.com/xamarin/android?WT.mc_id=createinteractivecharts-github-bramin):
 
 ### XWeather, iOS Example
 _[Link to Source Code](https://github.com/colbylwilliams/XWeather/blob/master/XWeather/iOS/ViewControllers/DailyGraphView.cs)_
@@ -69,7 +69,7 @@ Let's look at how to do it with Syncfusion instead.
 
 # Drawing Charts With Syncfusion
 
-Syncfusion makes our lives easier by using the [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview) library. It doesn't require any complex calculations, and, best of all, it is cross-platform and can be used in our [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=syncfusion-blog-bramin) project! 
+Syncfusion makes our lives easier by using the [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview) library. It doesn't require any complex calculations, and, best of all, it is cross-platform and can be used in our [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms?WT.mc_id=createinteractivecharts-github-bramin) project! 
 
 Let's look at how to install and implement [`SfCharts`](https://help.syncfusion.com/xamarin/charts/overview).
 
